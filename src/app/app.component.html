@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<div class="main">
+  <h1>Todo List</h1>
+  <div class="addItem">
+    <input [(ngModel)] = "newItem" placeholder="Add Item" class="addText">
+    <button (click) = "pushItem()">Add</button>
+  </div>
+  <ul>
+    <p class="todohead">To Do List</p>
+    <li *ngFor="let item of items; let i = index">
+      {{item}}
+      <span (click) = "removeItem(i)">x</span>
+    </li>
+  </ul>
+</div>

@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'todo-list',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  items = ["Angular 4", "React", "Underscore"];
+  newItem = "";
+  pushItem = function() {
+    if(this.newItem != "") {
+      this.items.unshift(this.newItem);
+      this.newItem = "";
+    }
+  }
+  removeItem = function(index) {
+    this.items.splice(index, 1);
+  }
 }
